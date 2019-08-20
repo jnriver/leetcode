@@ -49,19 +49,21 @@ class Solution(object):
         """
         sub = ""
         start = maxl = 0
-        for i in range(len(s)):
+        i = 0
+        while i < len(s):
             if s[i] not in sub:
                 sub+=s[i]
                 maxl = max(maxl, len(sub))
-                print(sub)
             else:
-                start = i = start + sub.index(s[i])
+                i = start + sub.index(s[i]) + 1
+                start = i
                 sub = s[i]
+            i += 1
 
         return maxl
 
 
 if __name__ == "__main__":
-    print(Solution().lengthOfLongestSubstring("dacabdcccc"))
-    # print(Solution().lengthOfLongestSubstring("pwwkew"))
-    # print(Solution().lengthOfLongestSubstring("abcabcbb"))
+    print(Solution().lengthOfLongestSubstring("aab"))
+    print(Solution().lengthOfLongestSubstring("pwwkew"))
+    print(Solution().lengthOfLongestSubstring("abcabcbb"))
